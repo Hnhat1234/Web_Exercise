@@ -1,0 +1,2 @@
+INDEX VERSION 1.134+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\Week2\Login_With_Cookie\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index

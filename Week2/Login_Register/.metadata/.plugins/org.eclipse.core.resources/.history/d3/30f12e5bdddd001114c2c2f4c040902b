@@ -1,0 +1,10 @@
+package Service;
+
+import Model.Account;
+
+public interface LoginDao {
+	public class LoginDao implements LoginDao {
+		public Connection conn = null;
+		public 
+	}
+}

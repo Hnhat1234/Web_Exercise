@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2e.Maven2LaunchConfigurationType">
+    <booleanAttribute key="M2_BATCH" value="false"/>
+    <stringAttribute key="M2_GOALS" value="-U archetype:generate"/>
+    <listAttribute key="M2_PROPERTIES">
+        <listEntry value="browser4-version=4.13.7"/>
+        <listEntry value="pluginName=My Browser4 Plugin"/>
+        <listEntry value="pluginDescription=A Browser4 plugin that provides custom functionality"/>
+        <listEntry value="archetypeGroupId=ai.platon.pulsar"/>
+        <listEntry value="archetypeArtifactId=browser4-plugin-archetype"/>
+        <listEntry value="archetypeVersion=4.14.0-rc.2"/>
+        <listEntry value="groupId=2"/>
+        <listEntry value="artifactId=2"/>
+        <listEntry value="version=0.0.1-SNAPSHOT"/>
+        <listEntry value="package="/>
+        <listEntry value="outputDirectory=E:\Hnhatn\Tai_lieu\Dai_hoc\Web\test"/>
+    </listAttribute>
+    <booleanAttribute key="M2_SAVE_BEFORE_LAUNCH" value="false"/>
+    <stringAttribute key="org.eclipse.debug.core.terminate.timestamp" value="1794205209500"/>
+    <booleanAttribute key="org.eclipse.debug.ui.private" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\hnhatn\AppData\Local\Temp\m2e-archetypeGenerator13347513459960590380"/>
+</launchConfiguration>

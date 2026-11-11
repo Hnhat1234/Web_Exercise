@@ -1,0 +1,9 @@
+com\example\login\model\RememberMeCookie.class
+com\example\login\model\AuthService.class
+com\example\login\model\RememberMeCookie$Credentials.class
+com\example\login\HomeServlet.class
+com\example\login\ErrorServlet.class
+com\example\login\dao\UserDao.class
+com\example\login\LoginServlet.class
+com\example\login\model\Database.class
+com\example\login\model\User.class

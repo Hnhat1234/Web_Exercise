@@ -1,0 +1,14 @@
+package Service;
+
+public class LoginDaoImpl implements LoginDao {
+	public class GetDbConnection() {
+		String url = "jdbc:mysql://localhost@root:3306/Application";
+		
+	}
+	Account login(String username, String password) {
+		
+	}
+	String get() {
+		
+	}
+}

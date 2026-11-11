@@ -1,0 +1,16 @@
+package Service;
+
+import Model.Account;
+
+public interface Login {
+	Account login(String username, String password);
+	String get();
+	public class LoginImpl implements Login {
+		public Account login(String username, String password) {
+			
+		}
+		public String get() {
+			
+		}
+	}
+}

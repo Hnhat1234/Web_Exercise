@@ -1,0 +1,12 @@
+package Model;
+
+import java.io.Serializable;
+
+public class Account implements Serializable {
+	private String username;
+	private String password;
+	
+	static String get() {
+		return username;
+	}
+}

@@ -1,0 +1,12 @@
+package Service;
+
+import Model.Account;
+
+public class LoginDaoImpl implements LoginDao {
+	public Account login(String username, String password) {
+		
+	}
+	public String get() {
+		
+	}
+}

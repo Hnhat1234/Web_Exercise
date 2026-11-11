@@ -1,0 +1,10 @@
+package Service;
+
+public class LoginDaoImpl implements LoginDao {
+	Account login(String username, String password) {
+		
+	}
+	String get() {
+		
+	}
+}

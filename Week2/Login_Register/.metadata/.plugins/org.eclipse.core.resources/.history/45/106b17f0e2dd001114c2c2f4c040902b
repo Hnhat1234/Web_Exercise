@@ -1,0 +1,32 @@
+package Service;
+
+import Model.Account;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class LoginDaoImpl implements LoginDao {
+	
+	@Override
+	public Account login(String username, String password) {
+		String sql = "SELECT * FROM user WHERE username = ?";
+		try {
+			Connection conn = GetDBConnection.getconn();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+			
+			Account c = new Account();
+			c.set(rs.getString("username"), rs.getString("password"));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	public String get() {
+		
+	}
+}

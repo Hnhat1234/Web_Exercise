@@ -1,0 +1,112 @@
+1:58:04 Microsoft.UnloadController.HasCompletedUnloadProcessing_False
+1:58:04 Microsoft.Shutdown.TabStripModel.CloseAllTabs
+1:58:04 Microsoft.Shutdown.TabStripModel.CloseTabs
+1:58:04 Microsoft.Shutdown.TabStripModel.CloseTabs_EdgeBeforeClosingAllTabs
+1:58:04 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl
+1:58:04 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_TabClosable
+1:58:04 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_ClosingAll
+1:58:04 Microsoft.Shutdown.TabStripModel.CloseWebContentses
+1:58:04 Microsoft.Shutdown.TabStripModel.CloseWebContentses_FastShutdown
+1:58:04 Tab73 RenderProcessGone
+1:58:04 Microsoft.UnloadController.ClearUnloadState
+1:58:04 Microsoft.Shutdown.TabStripModel.RunUnloadListenerBeforeClosing_false
+1:58:04 Microsoft.Shutdown.TabStripModel.InternalCloseTabsImpl_ClosedAll
+1:58:04 Microsoft.Shutdown.TabStripModel.SendDetachWebContentsNotifications
+1:58:04 Microsoft.UnloadController.ClearUnloadState
+1:58:04 Browser73 Close Tab73 at 0
+1:58:04 Microsoft.Shutdown.OnWindowClosing
+1:58:04 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp
+1:58:04 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+1:58:04 Microsoft.Shutdown.OnWindowClosing_MaybeClearBrowsingDataOnExit
+1:58:04 Microsoft.Shutdown.OnWindowClosing_ClearBrowsingDataOnExitNotInProgress
+1:58:04 Microsoft.Shutdown.OnWindowClosingPostClearBrowsingData_NoBrowsingDataCleared
+1:58:04 Widget Closed: WebView2MinimalFrame
+1:58:04 Microsoft.UnloadController.TabStripEmpty
+1:58:04 Widget Closed: WebView2MinimalFrame
+1:58:04 Microsoft.UnloadController.HasCompletedUnloadProcessing_True
+1:58:04 Microsoft.Shutdown.OnWindowClosing
+1:58:04 Microsoft.Shutdown.OnWindowClosing_DeleteScheduled
+1:58:04 Microsoft.Browser_Removed
+1:58:04 Widget Closed: WebView2MinimalFrame
+1:58:13 Tab72 StartNav415 #typed
+1:58:13 Tab72 FinishNav415
+1:58:13 Tab72 PageLoad
+1:58:15 Tab72 StartNav416 #typed
+1:58:15 Tab72 FinishNav416
+1:58:15 Tab72 PageLoad
+1:58:18 Tab72 StartNav417 #typed
+1:58:18 Tab72 FinishNav417
+1:58:18 Tab72 PageLoad
+2:05:13 Tab37 StartNav418 #typed
+2:05:13 Tab37 FinishNav418
+2:05:13 Tab37 PageLoad
+2:05:15 Tab37 StartNav419 #typed
+2:05:15 Tab37 FinishNav419
+2:05:15 Tab37 PageLoad
+2:05:21 Tab37 StartNav420 #typed
+2:05:21 Tab37 FinishNav420
+2:05:21 Tab37 PageLoad
+2:05:53 Tab1 StartNav421 #typed
+2:05:53 Tab1 FinishNav421
+2:05:53 Tab1 PageLoad
+2:06:18 Tab1 StartNav422 #typed
+2:06:18 Tab1 FinishNav422
+2:06:18 Tab1 PageLoad
+2:06:23 Tab1 StartNav423 #typed
+2:06:23 Tab1 FinishNav423
+2:06:23 Tab1 PageLoad
+2:06:55 Tab1 StartNav424 #typed
+2:06:55 Tab1 FinishNav424
+2:06:55 Tab1 PageLoad
+2:08:13 Tab72 StartNav425 #typed
+2:08:13 Tab72 FinishNav425
+2:08:13 Tab72 PageLoad
+2:08:18 Tab72 StartNav426 #typed
+2:08:18 Tab72 FinishNav426
+2:08:18 Tab72 PageLoad
+2:08:21 Tab72 StartNav427 #typed
+2:08:21 Tab72 FinishNav427
+2:08:21 Tab72 PageLoad
+2:10:05 Tab1 StartNav428 #typed
+2:10:05 Tab1 FinishNav428
+2:10:05 Tab1 PageLoad
+2:10:26 Tab1 StartNav429 #typed
+2:10:26 Tab1 FinishNav429
+2:10:26 Tab1 PageLoad
+2:10:40 Tab72 StartNav430 #typed
+2:10:40 Tab72 FinishNav430
+2:10:40 Tab72 PageLoad
+2:10:47 Tab72 StartNav431 #typed
+2:10:47 Tab72 FinishNav431
+2:10:47 Tab72 PageLoad
+2:10:49 Tab72 StartNav432 #typed
+2:10:49 Tab72 FinishNav432
+2:10:49 Tab72 PageLoad
+2:10:51 Tab72 StartNav433 #typed
+2:10:51 Tab72 FinishNav433
+2:10:51 Tab72 PageLoad
+2:10:52 Tab72 StartNav434 #typed
+2:10:52 Tab72 FinishNav434
+2:10:52 Tab72 PageLoad
+2:10:58 Tab72 StartNav435 #typed
+2:10:58 Tab72 FinishNav435
+2:10:58 Tab72 PageLoad
+2:11:07 Tab72 StartNav436 #typed
+2:11:08 Tab72 FinishNav436
+2:11:08 Tab72 PageLoad
+2:11:12 Tab72 StartNav437 #typed
+2:11:12 Tab72 FinishNav437
+2:11:12 Tab72 PageLoad
+2:14:39 Tab72 StartNav438 #typed
+2:14:39 Tab72 FinishNav438
+2:14:39 Tab72 PageLoad
+2:15:05 Tab72 StartNav439 #typed
+2:15:05 Tab72 FinishNav439
+2:15:05 Tab72 PageLoad
+2:19:48 Tab72 StartNav440 #typed
+2:19:48 Tab72 FinishNav440
+2:19:48 Tab72 PageLoad
+2:20:52 Tab72 StartNav441 #typed
+2:20:52 Tab72 FinishNav441
+2:20:52 Tab72 PageLoad
+2:21:26 Microsoft.Shutdown.OnWindowClosing

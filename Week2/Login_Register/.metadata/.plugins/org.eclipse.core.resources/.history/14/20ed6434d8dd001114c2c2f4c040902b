@@ -1,0 +1,17 @@
+package Model;
+
+import java.io.Serializable;
+
+public class Account implements Serializable {
+	private String username;
+	private String password;
+	
+	static String get() {
+		try {
+			return Account.username;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
