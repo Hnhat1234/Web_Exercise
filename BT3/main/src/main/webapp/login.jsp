@@ -31,12 +31,16 @@
 	<input type="submit" value="Submit">
 
 	<a href="register">Register</a>
+	<a href="forgot">Forgot password?</a>
 
 	<% if (request.getAttribute("error") != null) { %>
 		<p><%= request.getAttribute("error") %></p>
 	<% } %>
 	<% if ("1".equals(request.getParameter("registered"))) { %>
 		<p>Registration successful. Please log in.</p>
+	<% } %>
+	<% if ("1".equals(request.getParameter("reset"))) { %>
+		<p>Password reset successful. Please log in.</p>
 	<% } %>
 </form>
 

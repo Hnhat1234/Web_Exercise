@@ -9,6 +9,10 @@ public class RegisterImpl implements Register {
 		return dao.exists(email, username);
 	}
 
+	public boolean emailExists(String email) {
+		return dao.emailExists(email);
+	}
+
 	public String generatedOTP(String email, String password) {
 		return dao.generatedOTP(email, password);
 	}
@@ -30,6 +34,29 @@ public class RegisterImpl implements Register {
 		}
 
 		if (dao.register(email, username, Hash.hashPassword(password))) {
+			dao.removeOTP(email);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean verifyResetOTP(String email, String otp) {
+		String hash = dao.getHash(email);
+		if (hash == null) {
+			return false;
+		}
+
+		try {
+			String attempt = Hash.toHexString(Hash.getSHA(email + otp));
+			return hash.equals(attempt);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean resetPassword(String email, String password) {
+		if (dao.updatePassword(email, Hash.hashPassword(password))) {
 			dao.removeOTP(email);
 			return true;
 		}
