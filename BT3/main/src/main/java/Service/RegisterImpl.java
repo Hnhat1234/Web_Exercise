@@ -29,7 +29,7 @@ public class RegisterImpl implements Register {
 			return false;
 		}
 
-		if (dao.register(email, username, password)) {
+		if (dao.register(email, username, Hash.hashPassword(password))) {
 			dao.removeOTP(email);
 			return true;
 		}

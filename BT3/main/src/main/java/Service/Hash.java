@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 public class Hash {
 	public static byte[] getSHA(String input) throws NoSuchAlgorithmException {
@@ -29,6 +30,48 @@ public class Hash {
             hexString.insert(0, '0');
         }
 
+        return hexString.toString();
+    }
+
+    public static String hashPassword(String password) {
+        byte[] salt = new byte[16];
+        new SecureRandom().nextBytes(salt);
+
+        String saltString = toHex(salt);
+        try {
+            return saltString + ":" + toHexString(getSHA(saltString + password));
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    public static boolean checkPassword(String password, String stored) {
+        if (stored == null) {
+            return false;
+        }
+
+        int separator = stored.indexOf(':');
+        if (separator < 0) {
+            return false;
+        }
+
+        String saltString = stored.substring(0, separator);
+        try {
+            String expected = toHexString(getSHA(saltString + password));
+            return MessageDigest.isEqual(
+                    expected.getBytes(StandardCharsets.UTF_8),
+                    stored.substring(separator + 1).getBytes(StandardCharsets.UTF_8));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private static String toHex(byte[] bytes) {
+        StringBuilder hexString = new StringBuilder(bytes.length * 2);
+        for (byte b : bytes) {
+            hexString.append(String.format("%02x", b));
+        }
         return hexString.toString();
     }
 }

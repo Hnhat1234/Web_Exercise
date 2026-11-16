@@ -13,13 +13,18 @@ public class LoginDaoImpl implements LoginDao {
 		EntityManager em = JPAUtil.getEntityManager();
 		try {
 			List<Account> result = em.createQuery(
-					"SELECT a FROM Account a WHERE a.username = :username AND a.password = :password",
+					"SELECT a FROM Account a WHERE a.username = :username",
 					Account.class)
 					.setParameter("username", username)
-					.setParameter("password", password)
 					.setMaxResults(1)
 					.getResultList();
-			return result.isEmpty() ? null : result.get(0);
+
+			if (result.isEmpty()) {
+				return null;
+			}
+
+			Account account = result.get(0);
+			return Hash.checkPassword(password, account.getPassword()) ? account : null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
