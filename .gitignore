@@ -1,3 +1,4 @@
 .commandcode/
 .metadata/
 .Servers/
+.env
