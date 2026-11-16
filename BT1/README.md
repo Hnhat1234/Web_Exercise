@@ -1,3 +1,3 @@
 # Overview
 
-Basic Login and Register with MVC and 3 layers model.
+Tính năng Login và Register cơ bản với JDBC.
