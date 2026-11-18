@@ -7,6 +7,7 @@
 	<persistence-unit name="jpa-hibernate-mysql">
 		<class>Model.Account</class>
 		<class>Model.OTP</class>
+		<class>Model.Video</class>
 
 		<properties>
 			<property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />

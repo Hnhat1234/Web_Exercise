@@ -1,2 +1,5 @@
 controller\Forgot.class
+Service\VideosImpl.class
 Service\TLSEmail$1.class
+Model\VideoId.class
+controller\Watch.class

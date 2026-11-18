@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 
+import Service.VideosImpl;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,6 +24,9 @@ public class Index extends HttpServlet {
 			response.sendRedirect("login");
 			return;
 		}
+
+		Service.Videos videos = new VideosImpl();
+		request.setAttribute("videos", videos.getTenVideos((String) session.getAttribute("email")));
 
         String page = "index.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(page);

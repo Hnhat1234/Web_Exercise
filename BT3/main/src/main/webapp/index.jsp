@@ -35,6 +35,24 @@
 <div class="content">
 	<h2>Welcome, <%= username %></h2>
 	<p>You have logged in successfully.</p>
+
+	<h3>Ten Latest Videos</h3>
+	<%
+		java.util.List<String> latest = (java.util.List<String>) request.getAttribute("videos");
+		if (latest == null || latest.isEmpty()) {
+	%>
+		<p>You have not uploaded any videos yet.</p>
+	<%
+		} else {
+			for (String video : latest) {
+	%>
+		<p><a href="watch?name=<%= video %>"><%= video %></a></p>
+	<%
+			}
+		}
+	%>
+
+	<p><a href="Videos">Upload a video</a></p>
 </div>
 
 </body>

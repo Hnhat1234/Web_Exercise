@@ -52,6 +52,7 @@ public class Login extends HttpServlet {
 		if (account != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", account.getUsername());
+			session.setAttribute("email", account.getEmail());
 			response.sendRedirect("home");
 		} else {
 			request.setAttribute("error", "Invalid username or password.");
