@@ -12,12 +12,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Home</title>
 <style>
-	.header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 10px 20px;
-	}
 	.content {
 		width: 600px;
 		margin: 80px auto;
@@ -27,16 +21,12 @@
 
 <body>
 
-<div class="header">
-	<h1>Home</h1>
-	<a href="logout">Logout</a>
-</div>
-
 <div class="content">
-	<h2>Welcome, <%= username %></h2>
-	<p>You have logged in successfully.</p>
+	<div class="text-center">
+		<h2>Welcome, <%= username %></h2>
+	</div>
 
-	<h3>Ten Latest Videos</h3>
+	<h3>Recent Videos</h3>
 	<%
 		java.util.List<String> latest = (java.util.List<String>) request.getAttribute("videos");
 		if (latest == null || latest.isEmpty()) {
@@ -51,8 +41,6 @@
 			}
 		}
 	%>
-
-	<p><a href="Videos">Upload a video</a></p>
 </div>
 
 </body>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tomcat 11 defaults suspendWrappedResponseAfterForward to true, which suspends
+  SiteMesh's response wrapper after an application forward() and leaves every
+  servlet-forwarded page blank. See tomcat.apache.org/tomcat-11.0-doc/config/context.html
+-->
+<Context suspendWrappedResponseAfterForward="false"/>

@@ -18,6 +18,9 @@
 		display: block;
 		margin-top: 10px;
 	}
+	form.hidden {
+		display: none;
+	}
 	.videos {
 		width: 300px;
 		margin: 0 auto 80px auto;
@@ -26,20 +29,6 @@
 </head>
 
 <body>
-
-<form action="Videos" method="post" enctype="multipart/form-data">
-	<label for="uploadfile">Select file to upload</label>
-	<input type="file" id="uploadfile" name="uploadfile" accept="video/*">
-	<label for="name">Name</label>
-	<input type="text" id="name" name="name">
-	<input type="submit" value="Upload">
-
-	<a href="home">Back to home</a>
-
-	<% if (request.getAttribute("error") != null) { %>
-		<p><%= request.getAttribute("error") %></p>
-	<% } %>
-</form>
 
 <div class="videos">
 	<h3>All Videos</h3>
@@ -57,6 +46,20 @@
 			}
 		}
 	%>
+
+	<button type="button" onclick="document.getElementById('uploadForm').classList.toggle('hidden')">Upload a video</button>
+
+	<form id="uploadForm" class="<%= request.getAttribute("error") != null ? "" : "hidden" %>" action="Videos" method="post" enctype="multipart/form-data">
+		<label for="uploadfile">Select file to upload</label>
+		<input type="file" id="uploadfile" name="uploadfile" accept="video/*">
+		<label for="name">Name</label>
+		<input type="text" id="name" name="name">
+		<input type="submit" value="Upload">
+
+		<% if (request.getAttribute("error") != null) { %>
+			<p><%= request.getAttribute("error") %></p>
+		<% } %>
+	</form>
 </div>
 
 </body>

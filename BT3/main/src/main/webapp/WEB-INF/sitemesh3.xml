@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+	<!-- Every page in the app is decorated with the single Bootstrap template. -->
+	<mapping path="/*" decorator="bootstrap.jsp"/>
+</sitemesh>
