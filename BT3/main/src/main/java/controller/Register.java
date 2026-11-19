@@ -2,8 +2,12 @@ package controller;
 
 import java.io.IOException;
 
+import Form.RegisterForm;
+import Form.VerifyOtpForm;
 import Service.RegisterImpl;
 import Service.TLSEmail;
+import Validation.RegisterFormValidator;
+import Validation.VerifyOtpFormValidator;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -39,18 +43,21 @@ public class Register extends HttpServlet {
 
 	private void sendOTP(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		String email = request.getParameter("email");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		RegisterForm form = new RegisterForm(
+				request.getParameter("email"),
+				request.getParameter("username"),
+				request.getParameter("password"));
 
-		if (isBlank(email) || isBlank(username) || isBlank(password)) {
-			request.setAttribute("error", "Please enter your email, username and password.");
+		String error = new RegisterFormValidator().validate(form);
+		if (error != null) {
+			request.setAttribute("error", error);
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 			return;
 		}
 
-		email = email.trim();
-		username = username.trim();
+		String email = form.getEmail();
+		String username = form.getUsername();
+		String password = form.getPassword();
 
 		Service.Register register = new RegisterImpl();
 
@@ -87,18 +94,20 @@ public class Register extends HttpServlet {
 		String email = (String) session.getAttribute("otpEmail");
 		String username = (String) session.getAttribute("otpUsername");
 		String password = (String) session.getAttribute("otpPassword");
-		String otp = request.getParameter("otp");
 
-		if (isBlank(otp)) {
+		VerifyOtpForm form = new VerifyOtpForm(request.getParameter("otp"));
+
+		String error = new VerifyOtpFormValidator().validate(form);
+		if (error != null) {
 			request.setAttribute("email", email);
-			request.setAttribute("error", "Please enter the OTP.");
+			request.setAttribute("error", error);
 			request.getRequestDispatcher("verify.jsp").forward(request, response);
 			return;
 		}
 
 		Service.Register register = new RegisterImpl();
 
-		if (register.verifyOTP(email, username, password, otp.trim())) {
+		if (register.verifyOTP(email, username, password, form.getOtp())) {
 			session.removeAttribute("otpEmail");
 			session.removeAttribute("otpUsername");
 			session.removeAttribute("otpPassword");
@@ -108,9 +117,5 @@ public class Register extends HttpServlet {
 			request.setAttribute("error", "Invalid OTP. Please try again.");
 			request.getRequestDispatcher("verify.jsp").forward(request, response);
 		}
-	}
-
-	private boolean isBlank(String value) {
-		return value == null || value.trim().isEmpty();
 	}
 }

@@ -5,6 +5,12 @@ E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\controller\Logou
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\controller\Register.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\controller\Videos.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\controller\Watch.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Form\ForgotPasswordForm.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Form\LoginForm.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Form\RegisterForm.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Form\ResetPasswordForm.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Form\VerifyOtpForm.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Form\VideoUploadForm.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Model\Account.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Model\OTP.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Model\Video.java
@@ -24,3 +30,11 @@ E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Service\Videos.j
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Service\VideosDao.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Service\VideosDaoImpl.java
 E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Service\VideosImpl.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\ForgotPasswordFormValidator.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\FormValidator.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\InputChecks.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\LoginFormValidator.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\RegisterFormValidator.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\ResetPasswordFormValidator.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\VerifyOtpFormValidator.java
+E:\Hnhatn\Tai_lieu\Dai_hoc\Web\Excercise\BT3\main\src\main\java\Validation\VideoUploadFormValidator.java

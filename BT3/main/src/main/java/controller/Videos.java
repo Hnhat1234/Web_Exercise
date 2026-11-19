@@ -3,7 +3,9 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 
+import Form.VideoUploadForm;
 import Service.VideosImpl;
+import Validation.VideoUploadFormValidator;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -75,13 +77,15 @@ public class Videos extends HttpServlet {
 			filePart = part;
 		}
 
-		if (filePart == null) {
-			showUpload(request, response, email, "Please select a video to upload.");
+		VideoUploadForm form = new VideoUploadForm(submitted, request.getParameter("name"));
+
+		String error = new VideoUploadFormValidator().validate(form);
+		if (error != null) {
+			showUpload(request, response, email, error);
 			return;
 		}
 
-		String name = request.getParameter("name");
-		name = (name == null) ? "" : name.trim();
+		String name = form.getName();
 
 		String fileName = submitted;
 		if (!name.isEmpty()) {

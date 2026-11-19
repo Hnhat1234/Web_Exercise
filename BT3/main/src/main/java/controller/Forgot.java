@@ -2,8 +2,12 @@ package controller;
 
 import java.io.IOException;
 
+import Form.ForgotPasswordForm;
+import Form.ResetPasswordForm;
 import Service.RegisterImpl;
 import Service.TLSEmail;
+import Validation.ForgotPasswordFormValidator;
+import Validation.ResetPasswordFormValidator;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -39,15 +43,16 @@ public class Forgot extends HttpServlet {
 
 	private void sendOTP(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		String email = request.getParameter("email");
+		ForgotPasswordForm form = new ForgotPasswordForm(request.getParameter("email"));
 
-		if (isBlank(email)) {
-			request.setAttribute("error", "Please enter your email.");
+		String error = new ForgotPasswordFormValidator().validate(form);
+		if (error != null) {
+			request.setAttribute("error", error);
 			request.getRequestDispatcher("forgot.jsp").forward(request, response);
 			return;
 		}
 
-		email = email.trim();
+		String email = form.getEmail();
 
 		Service.Register register = new RegisterImpl();
 
@@ -80,26 +85,28 @@ public class Forgot extends HttpServlet {
 		}
 
 		String email = (String) session.getAttribute("resetEmail");
-		String otp = request.getParameter("otp");
-		String password = request.getParameter("password");
 
-		if (isBlank(otp) || isBlank(password)) {
+		ResetPasswordForm form = new ResetPasswordForm(
+				request.getParameter("otp"), request.getParameter("password"));
+
+		String error = new ResetPasswordFormValidator().validate(form);
+		if (error != null) {
 			request.setAttribute("email", email);
-			request.setAttribute("error", "Please enter the OTP and your new password.");
+			request.setAttribute("error", error);
 			request.getRequestDispatcher("reset.jsp").forward(request, response);
 			return;
 		}
 
 		Service.Register register = new RegisterImpl();
 
-		if (!register.verifyResetOTP(email, otp.trim())) {
+		if (!register.verifyResetOTP(email, form.getOtp())) {
 			request.setAttribute("email", email);
 			request.setAttribute("error", "Invalid OTP. Please try again.");
 			request.getRequestDispatcher("reset.jsp").forward(request, response);
 			return;
 		}
 
-		if (register.resetPassword(email, password)) {
+		if (register.resetPassword(email, form.getPassword())) {
 			session.removeAttribute("resetEmail");
 			response.sendRedirect("login?reset=1");
 		} else {
@@ -107,9 +114,5 @@ public class Forgot extends HttpServlet {
 			request.setAttribute("error", "Could not reset your password. Please try again.");
 			request.getRequestDispatcher("reset.jsp").forward(request, response);
 		}
-	}
-
-	private boolean isBlank(String value) {
-		return value == null || value.trim().isEmpty();
 	}
 }

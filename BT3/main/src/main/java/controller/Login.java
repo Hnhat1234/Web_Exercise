@@ -2,8 +2,10 @@ package controller;
 
 import java.io.IOException;
 
+import Form.LoginForm;
 import Model.Account;
 import Service.LoginImpl;
+import Validation.LoginFormValidator;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -36,18 +38,18 @@ public class Login extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		LoginForm form = new LoginForm(
+				request.getParameter("username"), request.getParameter("password"));
 
-		if (username == null || username.trim().isEmpty()
-				|| password == null || password.isEmpty()) {
-			request.setAttribute("error", "Please enter your username and password.");
+		String error = new LoginFormValidator().validate(form);
+		if (error != null) {
+			request.setAttribute("error", error);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
 
 		Service.Login login = new LoginImpl();
-		Account account = login.login(username.trim(), password);
+		Account account = login.login(form.getUsername(), form.getPassword());
 
 		if (account != null) {
 			HttpSession session = request.getSession();
