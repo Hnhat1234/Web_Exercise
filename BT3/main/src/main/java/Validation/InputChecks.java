@@ -10,9 +10,14 @@ public class InputChecks {
 	private static final Pattern EMAIL = Pattern.compile("^\\S+@\\S+\\.\\S+$");
 	private static final Pattern USERNAME = Pattern.compile("^[A-Za-z0-9._-]{3,30}$");
 	private static final Pattern OTP = Pattern.compile("^\\d{4}$");
+	private static final Pattern PHONE = Pattern.compile("^\\d{9,11}$");
 
 	private static final Set<String> VIDEO_EXTENSIONS = Collections.unmodifiableSet(
 		    new HashSet<>(Arrays.asList("mp4", "webm", "ogv", "ogg", "mov", "avi", "mkv", "m4v", "3gp"))
+			);
+
+	private static final Set<String> IMAGE_EXTENSIONS = Collections.unmodifiableSet(
+		    new HashSet<>(Arrays.asList("jpg", "jpeg", "png", "gif", "webp", "bmp"))
 			);
 
 	public static boolean isBlank(String value) {
@@ -35,6 +40,21 @@ public class InputChecks {
 		return password != null && password.length() >= 6;
 	}
 
+	public static boolean isValidPhoneNumber(String phone) {
+		return phone != null && PHONE.matcher(phone).matches();
+	}
+
+	public static String escapeHtml(String value) {
+		if (value == null) {
+			return "";
+		}
+		return value.replace("&", "&amp;")
+				.replace("<", "&lt;")
+				.replace(">", "&gt;")
+				.replace("\"", "&quot;")
+				.replace("'", "&#39;");
+	}
+
 	public static boolean hasVideoExtension(String fileName) {
 		if (fileName == null) {
 			return false;
@@ -44,5 +64,16 @@ public class InputChecks {
 			return false;
 		}
 		return VIDEO_EXTENSIONS.contains(fileName.substring(dot + 1).toLowerCase());
+	}
+
+	public static boolean hasImageExtension(String fileName) {
+		if (fileName == null) {
+			return false;
+		}
+		int dot = fileName.lastIndexOf('.');
+		if (dot < 0) {
+			return false;
+		}
+		return IMAGE_EXTENSIONS.contains(fileName.substring(dot + 1).toLowerCase());
 	}
 }

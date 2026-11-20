@@ -34,7 +34,13 @@ public class RegisterDaoImpl implements RegisterDao {
 	public boolean emailExists(String email) {
 		EntityManager em = JPAUtil.getEntityManager();
 		try {
-			return em.find(Account.class, email) != null;
+			List<Account> result = em.createQuery(
+					"SELECT a FROM Account a WHERE a.email = :email",
+					Account.class)
+					.setParameter("email", email)
+					.setMaxResults(1)
+					.getResultList();
+			return !result.isEmpty();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -133,11 +139,17 @@ public class RegisterDaoImpl implements RegisterDao {
 		EntityManager em = JPAUtil.getEntityManager();
 		try {
 			em.getTransaction().begin();
-			Account account = em.find(Account.class, email);
-			if (account == null) {
+			List<Account> result = em.createQuery(
+					"SELECT a FROM Account a WHERE a.email = :email",
+					Account.class)
+					.setParameter("email", email)
+					.setMaxResults(1)
+					.getResultList();
+			if (result.isEmpty()) {
 				em.getTransaction().rollback();
 				return false;
 			}
+			Account account = result.get(0);
 			account.setPassword(password);
 			em.getTransaction().commit();
 			return true;

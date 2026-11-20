@@ -26,7 +26,7 @@ public class Index extends HttpServlet {
 		}
 
 		Service.Videos videos = new VideosImpl();
-		request.setAttribute("videos", videos.getTenVideos((String) session.getAttribute("email")));
+		request.setAttribute("videos", videos.getTenVideos((String) session.getAttribute("username")));
 
         String page = "index.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(page);

@@ -46,7 +46,9 @@ public class Register extends HttpServlet {
 		RegisterForm form = new RegisterForm(
 				request.getParameter("email"),
 				request.getParameter("username"),
-				request.getParameter("password"));
+				request.getParameter("password"),
+				request.getParameter("full_name"),
+				request.getParameter("phone_number"));
 
 		String error = new RegisterFormValidator().validate(form);
 		if (error != null) {
@@ -78,6 +80,8 @@ public class Register extends HttpServlet {
 		session.setAttribute("otpEmail", email);
 		session.setAttribute("otpUsername", username);
 		session.setAttribute("otpPassword", password);
+		session.setAttribute("otpFullName", form.getFullName());
+		session.setAttribute("otpPhoneNumber", form.getPhoneNumber());
 
 		request.setAttribute("email", email);
 		request.getRequestDispatcher("verify.jsp").forward(request, response);
@@ -94,12 +98,14 @@ public class Register extends HttpServlet {
 		String email = (String) session.getAttribute("otpEmail");
 		String username = (String) session.getAttribute("otpUsername");
 		String password = (String) session.getAttribute("otpPassword");
+		String fullName = (String) session.getAttribute("otpFullName");
+		String phoneNumber = (String) session.getAttribute("otpPhoneNumber");
 
 		VerifyOtpForm form = new VerifyOtpForm(request.getParameter("otp"));
 
 		String error = new VerifyOtpFormValidator().validate(form);
 		if (error != null) {
-			request.setAttribute("email", email);
+			request.setAttribute("username", username);
 			request.setAttribute("error", error);
 			request.getRequestDispatcher("verify.jsp").forward(request, response);
 			return;
@@ -107,10 +113,12 @@ public class Register extends HttpServlet {
 
 		Service.Register register = new RegisterImpl();
 
-		if (register.verifyOTP(email, username, password, form.getOtp())) {
+		if (register.verifyOTP(email, username, password, fullName, phoneNumber, form.getOtp())) {
 			session.removeAttribute("otpEmail");
 			session.removeAttribute("otpUsername");
 			session.removeAttribute("otpPassword");
+			session.removeAttribute("otpFullName");
+			session.removeAttribute("otpPhoneNumber");
 			response.sendRedirect("login?registered=1");
 		} else {
 			request.setAttribute("email", email);

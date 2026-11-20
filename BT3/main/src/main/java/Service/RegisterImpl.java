@@ -4,6 +4,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class RegisterImpl implements Register {
 	private RegisterDao dao = new RegisterDaoImpl();
+	private Profile profile = new ProfileImpl();
 
 	public boolean exists(String email, String username) {
 		return dao.exists(email, username);
@@ -17,7 +18,7 @@ public class RegisterImpl implements Register {
 		return dao.generatedOTP(email, password);
 	}
 
-	public boolean verifyOTP(String email, String username, String password, String otp) {
+	public boolean verifyOTP(String email, String username, String password, String fullName, String phoneNumber, String otp) {
 		String hash = dao.getHash(email);
 		if (hash == null) {
 			return false;
@@ -34,6 +35,7 @@ public class RegisterImpl implements Register {
 		}
 
 		if (dao.register(email, username, Hash.hashPassword(password))) {
+			profile.createProfile(username, fullName, phoneNumber, email);
 			dao.removeOTP(email);
 			return true;
 		}

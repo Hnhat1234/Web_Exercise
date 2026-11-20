@@ -50,21 +50,21 @@ public class Videos extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if (session == null || session.getAttribute("email") == null) {
+		if (session == null || session.getAttribute("username") == null) {
 			response.sendRedirect("login");
 			return;
 		}
-		showUpload(request, response, (String) session.getAttribute("email"), null);
+		showUpload(request, response, (String) session.getAttribute("username"), null);
 	}
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if (session == null || session.getAttribute("email") == null) {
+		if (session == null || session.getAttribute("username") == null) {
 			response.sendRedirect("login");
 			return;
 		}
-		String email = (String) session.getAttribute("email");
+		String username = (String) session.getAttribute("username");
 
 		String submitted = "";
 		Part filePart = null;
@@ -81,7 +81,7 @@ public class Videos extends HttpServlet {
 
 		String error = new VideoUploadFormValidator().validate(form);
 		if (error != null) {
-			showUpload(request, response, email, error);
+			showUpload(request, response, username, error);
 			return;
 		}
 
@@ -95,8 +95,8 @@ public class Videos extends HttpServlet {
 		}
 
 		Service.Videos videos = new VideosImpl();
-		if (videos.checkNameExists(email, fileName)) {
-			showUpload(request, response, email, "You have already uploaded a video with that name.");
+		if (videos.checkNameExists(username, fileName)) {
+			showUpload(request, response, username, "You have already uploaded a video with that name.");
 			return;
 		}
 
@@ -104,8 +104,8 @@ public class Videos extends HttpServlet {
 		dir.mkdirs();
 		filePart.write(new File(dir, fileName).getAbsolutePath());
 
-		if (!videos.uploadVideo(email, fileName)) {
-			showUpload(request, response, email, "Could not save the video. Please try again.");
+		if (!videos.uploadVideo(username, fileName)) {
+			showUpload(request, response, username, "Could not save the video. Please try again.");
 			return;
 		}
 

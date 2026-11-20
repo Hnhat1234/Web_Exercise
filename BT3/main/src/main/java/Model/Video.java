@@ -16,8 +16,8 @@ public class Video implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "email")
-	private String email;
+	@Column(name = "username")
+	private String username;
 	
 	@Id
 	@Column(name = "video_name")
@@ -29,13 +29,13 @@ public class Video implements Serializable {
 	public Video(){
 		
 	}
-	public Video(String email, String video_name){
-		this.email = email;
+	public Video(String username, String video_name){
+		this.username = username;
 		this.video_name = video_name;
 		this.uploaded_at = LocalDateTime.now();
 	}
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 	public String getVideoName() {
 		return video_name;

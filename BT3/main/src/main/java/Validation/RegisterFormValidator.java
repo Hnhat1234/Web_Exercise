@@ -18,6 +18,9 @@ public class RegisterFormValidator implements FormValidator<RegisterForm> {
 		if (!InputChecks.isValidPassword(form.getPassword())) {
 			return "Password must be at least 6 characters.";
 		}
+		if (!InputChecks.isBlank(form.getPhoneNumber()) && !InputChecks.isValidPhoneNumber(form.getPhoneNumber())) {
+			return "Please enter a valid phone number.";
+		}
 		return null;
 	}
 }

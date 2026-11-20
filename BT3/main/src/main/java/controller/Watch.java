@@ -20,11 +20,11 @@ public class Watch extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		if (session == null || session.getAttribute("email") == null) {
+		if (session == null || session.getAttribute("username") == null) {
 			response.sendRedirect("login");
 			return;
 		}
-		String email = (String) session.getAttribute("email");
+		String email = (String) session.getAttribute("username");
 
 		String name = request.getParameter("name");
 		if (name == null || name.trim().isEmpty()) {

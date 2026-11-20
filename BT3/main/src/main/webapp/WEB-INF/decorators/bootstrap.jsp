@@ -26,6 +26,7 @@
 				<% if (username != null) { %>
 				<li class="nav-item"><a class="nav-link" href="<%= ctx %>/home">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%= ctx %>/Videos">Videos</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%= ctx %>/profile">Profile</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%= ctx %>/logout">Logout</a></li>
 				<% } else { %>
 				<li class="nav-item"><a class="nav-link" href="<%= ctx %>/login">Login</a></li>

@@ -30,6 +30,10 @@
 	<input type="text" id="username" name="username">
 	<label for="password">Password</label>
 	<input type="password" id="password" name="password">
+	<label for="full_name">Full name</label>
+	<input type="text" id="full_name" name="full_name">
+	<label for="phone_number">Phone number</label>
+	<input type="text" id="phone_number" name="phone_number">
 	<input type="submit" value="Submit">
 
 	<a href="login">Back to login</a>

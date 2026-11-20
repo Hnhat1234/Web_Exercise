@@ -8,6 +8,7 @@
 		<class>Model.Account</class>
 		<class>Model.OTP</class>
 		<class>Model.Video</class>
+		<class>Model.UserProfile</class>
 
 		<properties>
 			<property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
