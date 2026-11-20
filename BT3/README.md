@@ -8,3 +8,5 @@ Cải thiện chức năng đăng ký và đăng nhập từ BT2:
 Thêm tính năng cho người dùng Upload và xem Video của mình. Video được hiện ở trên cả trang chủ và trang chứa Video.
 
 Cấu hình Sitemesh decorator 3 với một bootstrap template. Thêm chức năng validation cho các loại FORM trong trang web.
+
+Thêm tính năng cập nhật thông tin Profile, upload ảnh đại diện cá nhân bằng Cloudinary.
